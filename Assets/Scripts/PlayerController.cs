@@ -76,7 +76,9 @@ public class PlayerController : MonoBehaviour
 
 
     void UserControl(){
-        applyMotion = new Vector2(Input.GetAxis("Horizontal") * moveSpeed, 0);
+        applyMotion = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, 0);
+
+        if(IsGrounded())
         rb.AddForce(applyMotion);
         if(IsGrounded() || (Time.time - lastTimeGrounded <= rememberGroundedFor)){
          
@@ -92,9 +94,16 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    int rndmov(){
+        float a = Random.Range(0f, 1f);
+
+            //Debug.Log(a);
+        return Mathf.Round(a) == 1 ? 1 : -1;
+    }
     void RandomControl(){
         if(Time.time - lastdecision >= decisionMake ){
-        applyMotion = new Vector2(Random.Range(-1.0f, 1.0f) * moveSpeed, 0);
+            int mov = rndmov();
+        applyMotion = new Vector2( mov * moveSpeed, 0);
         lastdecision = Time.time;
         }
 
