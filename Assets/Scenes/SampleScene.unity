@@ -540,7 +540,7 @@ MonoBehaviour:
   decisionMake: 1
   revEffect: {fileID: 570094485}
   recordSpeed: 0.1
-  playSpeed: 0.01
+  playSpeed: 0.0001
   interpolaiton: 12
 --- !u!1 &963194225
 GameObject:
