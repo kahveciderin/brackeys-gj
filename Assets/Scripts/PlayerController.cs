@@ -52,15 +52,27 @@ public class PlayerController : MonoBehaviour
     Stack<Vector2> babymovs = new Stack<Vector2>(); 
     
 
+
+    public int interpolaiton = 6;
     IEnumerator reverseBaby(){
 
         revEffect.SetActive(true);
 
+        Vector2 previousPos = transform.position;
         for(int i = 0; i < playermovs.Count; i++) {
+            
             Vector2 playbackthis = playermovs.Pop();
-            gameObject.transform.position = playbackthis;
+            Vector2 deltaPos = playbackthis - previousPos;
+
+
+            for(int j = 1; j < interpolaiton + 1; j++){
+                Vector2 addThis = j * (deltaPos / new Vector2(interpolaiton,interpolaiton));
+                gameObject.transform.position = previousPos + addThis;
+                
+                yield return new WaitForSeconds(playSpeed);
+            }
             babymovs.Push(playbackthis);
-            yield return new WaitForSeconds(playSpeed);
+            previousPos = playbackthis;
         }
 
 
@@ -71,8 +83,15 @@ public class PlayerController : MonoBehaviour
 
         for(int i = 0; i < babymovs.Count; i++) {
             Vector2 playbackthis = babymovs.Pop();
-            gameObject.transform.position = playbackthis;
+            Vector2 deltaPos = playbackthis - previousPos;
+
+            for(int j = 1; j < interpolaiton + 1; j++){
+            Vector2 addThis = j * (deltaPos / new Vector2(interpolaiton,interpolaiton));
+            gameObject.transform.position =previousPos + addThis;
             yield return new WaitForSeconds(playSpeed);
+            }
+
+            previousPos = playbackthis;
         }
 
 
