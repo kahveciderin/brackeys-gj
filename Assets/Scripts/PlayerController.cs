@@ -38,13 +38,49 @@ public class PlayerController : MonoBehaviour
     float lastdecision;
 
 
+    public GameObject revEffect;
+
     Vector2 applyMotion;
-    void ToBaby(){
+
+    public float recordSpeed = 0.4f;
+    float lastRecorded;
+
+    public float playSpeed = 0.1f;
+
+    bool stop;
+    Stack<Vector2> playermovs = new Stack<Vector2>(); 
+    Stack<Vector2> babymovs = new Stack<Vector2>(); 
+    
+
+    IEnumerator reverseBaby(){
+
+        revEffect.SetActive(true);
+
+        for(int i = 0; i < playermovs.Count; i++) {
+            Vector2 playbackthis = playermovs.Pop();
+            gameObject.transform.position = playbackthis;
+            babymovs.Push(playbackthis);
+            yield return new WaitForSeconds(playSpeed);
+        }
+
+
         collider.offset = new Vector2(0, -.055f);
         collider.size = new Vector2(.07f, .05f);
         spriteRenderer.sprite = spriteBaby;
         isBaby = true;
+
+        for(int i = 0; i < babymovs.Count; i++) {
+            Vector2 playbackthis = babymovs.Pop();
+            gameObject.transform.position = playbackthis;
+            yield return new WaitForSeconds(playSpeed);
+        }
+
+
+        stop = false;
+        revEffect.SetActive(false);
     }
+
+
 
     void ToAdult(){
         collider.offset = new Vector2(0, 0);
@@ -88,9 +124,15 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetAxis("Fire1") > 0){
 
-            ToBaby();
+            stop = true;
+            StartCoroutine(reverseBaby());
         }
 
+
+    if(Time.time - lastRecorded >= recordSpeed ){
+        playermovs.Push(gameObject.transform.position);
+        lastRecorded = Time.time;
+    }
     }
 
 
@@ -112,7 +154,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-
+        if(!stop){
         if(isBaby)
         RandomControl();
         else
@@ -125,5 +167,6 @@ public class PlayerController : MonoBehaviour
     }   
 
 
+        }
     }
 }
