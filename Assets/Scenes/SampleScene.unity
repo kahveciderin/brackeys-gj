@@ -1225,7 +1225,6 @@ GameObject:
   - component: {fileID: 1249656759}
   - component: {fileID: 1249656761}
   - component: {fileID: 1249656758}
-  - component: {fileID: 1249656760}
   m_Layer: 8
   m_Name: BaseGround
   m_TagString: Untagged
@@ -1273,27 +1272,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &1249656760
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1249656757}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 1bcdaf6126e0017b1a262d8baca492c3, type: 2}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 7
 --- !u!212 &1249656761
 SpriteRenderer:
   m_ObjectHideFlags: 0

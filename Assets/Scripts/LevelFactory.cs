@@ -24,6 +24,19 @@ public class LevelFactory : MonoBehaviour
         camera.LevelUp();
         player.ResetPlayer();
         levelid++;
+
+        if(levelid < traditionalLevels.Length){
+
         levelloader.LoadLevel(levelloader.ConvertLevel(traditionalLevels[levelid]));
+        }
+        else{
+            levelloader.LoadLevel(levelloader.ConvertLevel(GenerateLevel(levelid)));
+        }
+    }
+
+
+    int[] GenerateLevel(int seed){
+        //TODO: Add level generation code here
+        return new int[2];
     }
 }
