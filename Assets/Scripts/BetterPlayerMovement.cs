@@ -125,6 +125,12 @@ public class BetterPlayerMovement : MonoBehaviour
 
         }
 
+
+        if(velocity.x > 0){
+            transform.localScale = new Vector2(5,5);
+        }else if(velocity.x < 0){
+            transform.localScale = new Vector2(-5,5);
+        }
     }
 
 
@@ -193,7 +199,7 @@ public class BetterPlayerMovement : MonoBehaviour
     void ToAdult()
     {
         collider.offset = new Vector2(0, 0);
-        collider.size = new Vector2(.07f, .16f);
+        collider.size = new Vector2(.32f, .19f);
         //spriteRenderer.sprite = spriteAdult;
         isBaby = false;
 
