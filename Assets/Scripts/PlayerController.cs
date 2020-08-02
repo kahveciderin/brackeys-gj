@@ -56,6 +56,8 @@ public class PlayerController : MonoBehaviour
     public int interpolaiton = 6;
     IEnumerator reverseBaby(){
 
+
+        
         revEffect.SetActive(true);
 
         Vector2 previousPos = transform.position;
@@ -151,6 +153,8 @@ public class PlayerController : MonoBehaviour
         if(Input.GetAxis("Fire1") > 0){
 
             stop = true;
+            playermovs.Push(gameObject.transform.position);
+            lastRecorded = Time.time;
             StartCoroutine(reverseBaby());
         }
 
