@@ -20,6 +20,8 @@ public class BetterController : MonoBehaviour {
 	RaycastOrigins raycastOrigins;
 	public CollisionInfo collisions;
 
+
+
 	void Start() {
 		collider = GetComponent<BoxCollider2D> ();
 		CalculateRaySpacing ();

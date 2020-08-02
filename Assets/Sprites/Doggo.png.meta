@@ -26,6 +26,12 @@ TextureImporter:
   - first:
       213: -8293346647771385234
     second: Doggo_7
+  - first:
+      213: -1649174231089564281
+    second: Doggo_8
+  - first:
+      213: -9149079077896703374
+    second: Doggo_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -117,7 +123,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 21
         width: 29
         height: 21
       alignment: 0
@@ -138,7 +144,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 29
-        y: 0
+        y: 21
         width: 29
         height: 21
       alignment: 0
@@ -159,7 +165,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 58
-        y: 0
+        y: 21
         width: 29
         height: 21
       alignment: 0
@@ -179,8 +185,8 @@ TextureImporter:
       name: Doggo_3
       rect:
         serializedVersion: 2
-        x: 88
-        y: 0
+        x: 87
+        y: 21
         width: 29
         height: 21
       alignment: 0
@@ -200,8 +206,8 @@ TextureImporter:
       name: Doggo_4
       rect:
         serializedVersion: 2
-        x: 117
-        y: 0
+        x: 116
+        y: 21
         width: 29
         height: 21
       alignment: 0
@@ -221,8 +227,8 @@ TextureImporter:
       name: Doggo_5
       rect:
         serializedVersion: 2
-        x: 146
-        y: 0
+        x: 145
+        y: 21
         width: 29
         height: 21
       alignment: 0
@@ -242,8 +248,8 @@ TextureImporter:
       name: Doggo_6
       rect:
         serializedVersion: 2
-        x: 175
-        y: 0
+        x: 174
+        y: 21
         width: 29
         height: 21
       alignment: 0
@@ -263,8 +269,8 @@ TextureImporter:
       name: Doggo_7
       rect:
         serializedVersion: 2
-        x: 205
-        y: 0
+        x: 203
+        y: 21
         width: 29
         height: 21
       alignment: 0
@@ -280,10 +286,52 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Doggo_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 785bd2746c4fc19e0800000000000000
+      internalID: -1649174231089564281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Doggo_9
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 0
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27232047d01f70180800000000000000
+      internalID: -9149079077896703374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 1aded1df5f0be334e9da73398c5e6c58
+    spriteID: 004f953caf63cba4193e02c8c8a20f51
     internalID: 0
     vertices: []
     indices: 

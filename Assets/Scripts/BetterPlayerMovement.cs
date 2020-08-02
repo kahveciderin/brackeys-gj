@@ -2,25 +2,22 @@
 using System.Collections;
 using System.Collections.Generic;
 
-[RequireComponent (typeof (BetterController))]
-public class BetterPlayerMovement : MonoBehaviour {
+[RequireComponent(typeof(BetterController))]
+public class BetterPlayerMovement : MonoBehaviour
+{
 
-	public float jumpHeight = 4;
-	public float timeToJumpApex = .4f;
-	float accelerationTimeAirborne = .2f;
-	float accelerationTimeGrounded = .1f;
-	float moveSpeed = 6;
+    public float jumpHeight = 4;
+    public float timeToJumpApex = .4f;
+    float accelerationTimeAirborne = .2f;
+    float accelerationTimeGrounded = .1f;
+    float moveSpeed = 6;
 
-	float gravity;
-	float jumpVelocity;
-	Vector3 velocity;
-	float velocityXSmoothing;
+    float gravity;
+    float jumpVelocity;
+    Vector3 velocity;
+    float velocityXSmoothing;
 
-	BetterController controller;
-
-    
-
-
+    BetterController controller;
 
     public Sprite spriteBaby;
 
@@ -45,13 +42,12 @@ public class BetterPlayerMovement : MonoBehaviour {
     public int interpolaiton = 6;
 
 
+    void Start()
+    {
+        controller = GetComponent<BetterController>();
 
-
-	void Start() {
-		controller = GetComponent<BetterController> ();
-
-		gravity = -(2 * jumpHeight) / Mathf.Pow (timeToJumpApex, 2);
-		jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+        gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
+        jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 
         animator = GetComponent<Animator>();
 
@@ -63,61 +59,76 @@ public class BetterPlayerMovement : MonoBehaviour {
         ToAdult();
 
 
-		//print ("Gravity: " + gravity + "  Jump Velocity: " + jumpVelocity);
-	}
+        //print ("Gravity: " + gravity + "  Jump Velocity: " + jumpVelocity);
+    }
 
-	void Update() {
+    void Update()
+    {
 
-		if (controller.collisions.above || controller.collisions.below) {
-			velocity.y = 0;
-		}
-
-    if(!stop){
-        Vector2 input;
-        if(isBaby){
-        input = new Vector2(1,0);
-        }else{
-
-		input = new Vector2 (Input.GetAxisRaw ("Horizontal"), Input.GetAxisRaw ("Vertical"));
-
-		if (Input.GetKeyDown (KeyCode.Space) && controller.collisions.below) {
-			velocity.y = jumpVelocity;
-		}
-
-
-         if (Time.time - lastRecorded >= recordSpeed)
+        if (controller.collisions.above || controller.collisions.below)
         {
-            playermovs.Push(gameObject.transform.position);
-            lastRecorded = Time.time;
+            velocity.y = 0;
+            animator.SetBool("isFalling", false);
         }
 
-
-        if (Input.GetAxis("Fire1") > 0)
+        if (velocity.y < 0f)
         {
-
-            stop = true;
-            playermovs.Push(gameObject.transform.position);
-            lastRecorded = Time.time;
-            playermovs.Push(gameObject.transform.position);
-            lastRecorded = Time.time;
-            StartCoroutine(reverseBaby());
+            animator.SetBool("isFalling", true);
         }
 
+        if (!stop)
+        {
+            Vector2 input;
+            if (isBaby)
+            {
+                input = new Vector2(1, 0);
+            }
+            else
+            {
+
+                input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+                animator.SetBool("isRunning", (input.x != 0f) ? true : false);
+
+                if (Input.GetKeyDown(KeyCode.Space) && controller.collisions.below)
+                {
+                    velocity.y = jumpVelocity;
+                    animator.SetTrigger("Jumping");
+                }
+
+
+                if (Time.time - lastRecorded >= recordSpeed)
+                {
+                    playermovs.Push(gameObject.transform.position);
+                    lastRecorded = Time.time;
+                }
+
+
+                if (Input.GetAxis("Fire1") > 0)
+                {
+
+                    stop = true;
+                    playermovs.Push(gameObject.transform.position);
+                    lastRecorded = Time.time;
+                    playermovs.Push(gameObject.transform.position);
+                    lastRecorded = Time.time;
+                    StartCoroutine(reverseBaby());
+                }
+
+            }
+
+
+            float targetVelocityX = input.x * moveSpeed;
+            velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
+            velocity.y += gravity * Time.deltaTime;
+            controller.Move(velocity * Time.deltaTime);
+
+
         }
-
-
-		float targetVelocityX = input.x * moveSpeed;
-		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below)?accelerationTimeGrounded:accelerationTimeAirborne);
-		velocity.y += gravity * Time.deltaTime;
-		controller.Move (velocity * Time.deltaTime);
-
 
     }
 
-	}
 
-
-        IEnumerator reverseBaby()
+    IEnumerator reverseBaby()
     {
 
 
