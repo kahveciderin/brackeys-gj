@@ -174,7 +174,7 @@ public class BetterController : MonoBehaviour {
 		raycastOrigins.topRight = new Vector2 (bounds.max.x, bounds.max.y);
 	}
 
-	void CalculateRaySpacing() {
+	public void CalculateRaySpacing() {
 		Bounds bounds = collider.bounds;
 		bounds.Expand (skinWidth * -2);
 
@@ -209,5 +209,7 @@ public class BetterController : MonoBehaviour {
 			slopeAngle = 0;
 		}
 	}
+
+
 
 }

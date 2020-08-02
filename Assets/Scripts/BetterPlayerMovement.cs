@@ -121,6 +121,7 @@ public class BetterPlayerMovement : MonoBehaviour {
     {
 
 
+
         revEffect.SetActive(true);
 
         Vector2 previousPos = transform.position;
@@ -166,6 +167,8 @@ public class BetterPlayerMovement : MonoBehaviour {
 
         stop = false;
         revEffect.SetActive(false);
+
+        controller.CalculateRaySpacing();
     }
 
     public void ResetPlayer()
@@ -182,6 +185,9 @@ public class BetterPlayerMovement : MonoBehaviour {
         collider.size = new Vector2(.07f, .16f);
         //spriteRenderer.sprite = spriteAdult;
         isBaby = false;
+
+
+        controller.CalculateRaySpacing();
     }
 
 }

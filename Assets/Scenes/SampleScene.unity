@@ -968,11 +968,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   curShader: {fileID: 4800000, guid: 3ab8b15398830695ea3a187bcc0b3682, type: 3}
-  Distortion: 0.1
+  Distortion: 0.78
   Gamma: 0.29
   YExtra: 0.5
   CurvatureSet1: 0.5
-  CurvatureSet2: 1
+  CurvatureSet2: -0.57
   DotWeight: 3.8
   scanSize: 1024
   rgb1: {r: 1, g: 1, b: 1, a: 1}
@@ -1138,7 +1138,7 @@ MonoBehaviour:
   - {fileID: 5613150974346417050, guid: 734c6ba81a5c390f89e4627428764c10, type: 3}
   - {fileID: 5613150974346417050, guid: 24c525c11289a2a7f8b4b45413cd98c3, type: 3}
   - {fileID: 5613150974346417050, guid: 41f22a347e21cf991a843a42d12cc6cc, type: 3}
-  tileSize: {x: 6, y: 6}
+  tileSize: {x: 6.2, y: 6.2}
 --- !u!114 &1204379744
 MonoBehaviour:
   m_ObjectHideFlags: 0
