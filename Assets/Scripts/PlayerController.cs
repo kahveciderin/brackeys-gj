@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
 
 
             for(int j = 1; j < interpolaiton + 1; j++){
-                Vector2 addThis = j * (deltaPos / new Vector2(interpolaiton,interpolaiton));
+                Vector2 addThis = j * (deltaPos / new Vector2(interpolaiton,interpolaiton)) ;
                 gameObject.transform.position = previousPos + addThis;
                 
                 yield return new WaitForSeconds(playSpeed);
@@ -109,9 +109,14 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
+
+
         collider = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         ToAdult();
+
+        playermovs.Push(gameObject.transform.position);
+        lastRecorded = Time.time;
     }
 
     bool IsGrounded(){
@@ -135,6 +140,8 @@ public class PlayerController : MonoBehaviour
 
         if(IsGrounded())
         rb.AddForce(applyMotion);
+        else
+        rb.AddForce(applyMotion/4);
         if(IsGrounded() || (Time.time - lastTimeGrounded <= rememberGroundedFor)){
          
         Jump();
