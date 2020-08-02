@@ -7,12 +7,12 @@ public class LevelFactory : MonoBehaviour
     int levelid = 0;
     public LevelLoader levelloader;
     public Camera camera;
-    public PlayerController player;
+    public BetterPlayerMovement player;
     public int[][] traditionalLevels = new int[][]{
 
 
-        new int[] {3,4,0,1,1,0,1,1,0,0,1,2,0,1},
-        new int[] {4,3,0,1,1,0,0,1,1,0,0,1,1,2}
+        new int[] {3,4,0,3,1,0,3,1,0,3,1,3,2,1},
+        new int[] {4,3,0,1,3,0,0,3,1,0,0,1,1,2}
 
     };
 

@@ -54,11 +54,15 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
 
     public int interpolaiton = 6;
+
+    public float maxSpeed = 200f;
+
+
     IEnumerator reverseBaby()
     {
 
 
-
+        maxSpeed = 50f;
         revEffect.SetActive(true);
 
         Vector2 previousPos = transform.position;
@@ -117,6 +121,7 @@ public class PlayerController : MonoBehaviour
     }
     void ToAdult()
     {
+        maxSpeed = 200f;
         collider.offset = new Vector2(0, 0);
         collider.size = new Vector2(.07f, .16f);
         //spriteRenderer.sprite = spriteAdult;
@@ -191,7 +196,8 @@ public class PlayerController : MonoBehaviour
         float a = Random.Range(0f, 1f);
 
         //Debug.Log(a);
-        return Mathf.Round(a) == 1 ? 1 : -1;
+        //return Mathf.Round(a) == 1 ? 1 : -1;
+        return 1;
     }
     void RandomControl()
     {
@@ -205,7 +211,7 @@ public class PlayerController : MonoBehaviour
 
         rb.AddForce(applyMotion);
     }
-    void Update()
+    void FixedUpdate()
     {
         if (!stop)
         {
@@ -225,5 +231,9 @@ public class PlayerController : MonoBehaviour
 
 
         }
+
+         rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+
+
     }
 }

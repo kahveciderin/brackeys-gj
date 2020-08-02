@@ -6,7 +6,13 @@ public class DragObjects : MonoBehaviour
 {
 
     private bool isDragging;
-    private bool reachable;
+    private float reachable;
+    GameObject player;
+
+
+    void Start(){
+        player = GameObject.Find("Adult");
+    }
     public void OnMouseDown()
     {
         isDragging = true;
@@ -21,33 +27,18 @@ public class DragObjects : MonoBehaviour
     {
 
             Vector2 mousePosition = UnityEngine.Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
-        if (isDragging ) {
+        if (isDragging) {
             //reachable = true;
-            if(reachable){
+
+            reachable = Vector3.Distance(gameObject.transform.position, player.transform.position);
+            //Debug.Log(reachable);
+            if(reachable < 6){
             transform.Translate(new Vector2(Mathf.Round(mousePosition.x), Mathf.Round(mousePosition.y)));
 
             }
         }
     }
 
-        void OnTriggerEnter2D(Collider2D col)
-    {
-     if(col.gameObject.tag == "Reach"){
-         reachable = true;
-
-     }
-       
-     
-    }
-
-
-        void OnTriggerExit2D(Collider2D col)
-    {
-
-     if(col.gameObject.tag == "Reach"){
-     reachable = false;
-     }
-    }
 
 
 }
