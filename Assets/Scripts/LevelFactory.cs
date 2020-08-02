@@ -11,7 +11,7 @@ public class LevelFactory : MonoBehaviour
     public int[][] traditionalLevels = new int[][]{
 
 
-        new int[] {3,4,0,3,1,0,3,1,0,3,1,3,2,1},
+        new int[] {3,4,0,-3,1,0,3,1,0,3,1,3,2,1},
         new int[] {4,3,0,1,3,0,0,3,1,0,0,1,1,2}
 
     };

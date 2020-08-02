@@ -17,10 +17,12 @@ public class LevelLoader : MonoBehaviour
          foreach(int[] vtiles in level){
              foreach (int tile in vtiles){
                  
-                GameObject thistile = Instantiate(sprites[tile], new Vector2(x, y), Quaternion.identity);
+                GameObject thistile = Instantiate(sprites[Mathf.Abs(tile)], new Vector2(x, y), Quaternion.identity);
+                
                 thistile.transform.SetParent(gameObject.transform);
+                
                 thistile.transform.localPosition = new Vector2(x, y);
-                thistile.transform.localScale = tileSize;
+                thistile.transform.localScale = tileSize * new Vector2(tile< 0 ? -1 :1 ,1);
                 x += 1;
              }
              x = 0;
