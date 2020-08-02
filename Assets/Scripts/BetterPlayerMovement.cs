@@ -22,9 +22,9 @@ public class BetterPlayerMovement : MonoBehaviour {
 
 
 
-    public Sprite spriteBaby;
+    public GameObject spriteBaby;
 
-    public Sprite spriteAdult;
+    public GameObject spriteAdult;
     SpriteRenderer spriteRenderer;
 
     bool isBaby = false;
@@ -152,7 +152,9 @@ public class BetterPlayerMovement : MonoBehaviour {
 
         collider.offset = new Vector2(0, -.055f);
         collider.size = new Vector2(.07f, .05f);
-        spriteRenderer.sprite = spriteBaby;
+        //spriteRenderer.sprite = spriteBaby;
+        spriteBaby.SetActive(true);
+        spriteAdult.SetActive(false);
         isBaby = true;
 
         for (int i = 0; i < babymovs.Count; i++)
@@ -187,6 +189,9 @@ public class BetterPlayerMovement : MonoBehaviour {
     }
     void ToAdult()
     {
+
+        spriteBaby.SetActive(false);
+        spriteAdult.SetActive(true);
         collider.offset = new Vector2(0, 0);
         collider.size = new Vector2(.32f, .19f);
         //spriteRenderer.sprite = spriteAdult;
