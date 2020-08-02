@@ -574,7 +574,7 @@ GameObject:
   - component: {fileID: 741564408}
   m_Layer: 0
   m_Name: Adult
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -866,6 +866,7 @@ GameObject:
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
   - component: {fileID: 963194231}
+  - component: {fileID: 963194232}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -954,7 +955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 741564405}
   smoothSpeed: 0.125
-  offset: {x: 0, y: 0, z: -5.46}
+  offset: {x: 0, y: 4, z: -5.46}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1037,6 +1038,22 @@ MonoBehaviour:
   scanSize: 1024
   rgb1: {r: 1, g: 1, b: 1, a: 1}
   rgb2: {r: 1, g: 1, b: 1, a: 1}
+--- !u!111 &963194232
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 965b9cebd10e51042917cbabe7239068, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 965b9cebd10e51042917cbabe7239068, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1162189814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1204379742}
   - component: {fileID: 1204379743}
+  - component: {fileID: 1204379744}
   m_Layer: 0
   m_Name: LevelLoader
   m_TagString: Untagged
@@ -1179,7 +1197,23 @@ MonoBehaviour:
   sprites:
   - {fileID: 5613150974346417050, guid: be2d6dc528a0617ff9ea5662efdbfb3e, type: 3}
   - {fileID: 5613150974346417050, guid: 734c6ba81a5c390f89e4627428764c10, type: 3}
+  - {fileID: 5613150974346417050, guid: 24c525c11289a2a7f8b4b45413cd98c3, type: 3}
   tileSize: {x: 6, y: 6}
+--- !u!114 &1204379744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204379741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 794efc4a6bc0381f8b1150de9b4eb871, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelloader: {fileID: 1204379743}
+  camera: {fileID: 963194229}
+  player: {fileID: 741564408}
 --- !u!1 &1249656757
 GameObject:
   m_ObjectHideFlags: 0

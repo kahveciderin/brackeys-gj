@@ -48,7 +48,7 @@ public class LevelLoader : MonoBehaviour
     }
 
     void Start(){
-        int[] startLevel = new int[] {4,3,0,1,1,0,0,1,1,0,0,1,1,1};
-        LoadLevel(ConvertLevel(startLevel));
+        //int[] startLevel = new int[] {4,3,0,1,1,0,0,1,1,0,0,1,1,1};
+        //LoadLevel(ConvertLevel(startLevel));
     }
 }

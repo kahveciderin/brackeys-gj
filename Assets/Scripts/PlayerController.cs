@@ -102,7 +102,13 @@ public class PlayerController : MonoBehaviour
     }
 
 
+    public void ResetPlayer(){
 
+        lastRecorded = Time.time;
+        ToAdult();
+        playermovs.Clear();
+        transform.position = Vector3.zero;
+    }
     void ToAdult(){
         collider.offset = new Vector2(0, 0);
         collider.size = new Vector2(.07f, .16f);
