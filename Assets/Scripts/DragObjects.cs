@@ -19,15 +19,13 @@ public class DragObjects : MonoBehaviour
 
     void Update()
     {
-        if (isDragging) {
+
             Vector2 mousePosition = UnityEngine.Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        if (isDragging ) {
             //reachable = true;
             if(reachable){
             transform.Translate(new Vector2(Mathf.Round(mousePosition.x), Mathf.Round(mousePosition.y)));
 
-            }else{
-
-     Debug.Log("Can't reach");
             }
         }
     }
