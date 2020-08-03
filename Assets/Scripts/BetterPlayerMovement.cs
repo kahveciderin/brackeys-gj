@@ -180,7 +180,7 @@ public class BetterPlayerMovement : MonoBehaviour
             for (int j = 1; j < interpolaiton + 1; j++)
             {
                 Vector2 addThis = j * (deltaPos / new Vector2(interpolaiton, interpolaiton));
-                gameObject.transform.position = previousPos + addThis;
+                //gameObject.transform.position = previousPos + addThis;
                 yield return new WaitForSeconds(playSpeed);
             }
 
