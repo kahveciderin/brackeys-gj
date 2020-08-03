@@ -25,18 +25,48 @@ public class LevelFactory : MonoBehaviour
         player.ResetPlayer();
         levelid++;
 
-        if(levelid < traditionalLevels.Length){
+       /// if(levelid < traditionalLevels.Length){
 
-        levelloader.LoadLevel(levelloader.ConvertLevel(traditionalLevels[levelid]));
-        }
-        else{
+       /// levelloader.LoadLevel(levelloader.ConvertLevel(traditionalLevels[levelid]));
+       /// }
+       /// else{
             levelloader.LoadLevel(levelloader.ConvertLevel(GenerateLevel(levelid)));
-        }
+       ///}
     }
 
 
     int[] GenerateLevel(int seed){
-        //TODO: Add level generation code here
-        return new int[2];
+
+        Random.seed = seed;
+        int x = 15;
+        int y = 8;
+        int blockCnt = Random.Range((x * y ) / 15 - 3, (x * y ) / 15 + 3);
+        List<int> blockpos = new List<int>();
+        for(int i = 0; i < blockCnt; i++){
+            blockpos.Add(Random.Range((x + 2),(x - 1) * (y - 1)));
+            
+        }
+        int goalHeight = Random.Range(2, y-1);
+        Debug.Log(goalHeight);
+        List<int> level = new List<int>();
+        level.Add(x);
+        level.Add(y);
+        for(int i = 0; i < x * y; i++){
+            if(i % x == 0 || i < x - 1 || i % x == x - 1 || i > y * x - x){
+                level.Add(4);
+            }else if((x - 1) * goalHeight + (goalHeight - 1) - 1== i){
+                level.Add(2);
+            }else if(blockpos.Contains(i)){
+
+                int add = 0;
+                do{
+                    add = Random.Range(-6,6);
+                }while(Mathf.Abs(add) == 2 || Mathf.Abs(add) == 0 || Mathf.Abs(add) == 4);
+                level.Add(add);
+            }else{
+                level.Add(0);
+            }
+        }
+        return level.ToArray();
     }
 }
