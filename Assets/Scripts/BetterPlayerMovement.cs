@@ -42,6 +42,8 @@ public class BetterPlayerMovement : MonoBehaviour
     public int interpolaiton = 6;
 
     public bool isPaused = false;
+
+    public GameObject babyDoggo;
     void Start()
     {
         controller = GetComponent<BetterController>();
@@ -164,9 +166,10 @@ public class BetterPlayerMovement : MonoBehaviour
         GameObject.FindGameObjectsWithTag("Blocker")[0].SetActive(false);
 
 
-        collider.offset = new Vector2(0, -.055f);
-        collider.size = new Vector2(.07f, .05f);
-        spriteRenderer.sprite = spriteBaby;
+        collider.offset = new Vector2(-0.03f, -.06f);
+        collider.size = new Vector2(.18f, .12f);
+        babyDoggo.SetActive(true);
+        spriteRenderer.enabled = false;
         isBaby = true;
 
         for (int i = 0; i < babymovs.Count; i++)
@@ -201,8 +204,10 @@ public class BetterPlayerMovement : MonoBehaviour
     }
     void ToAdult()
     {
-        collider.offset = new Vector2(0, 0);
-        collider.size = new Vector2(.32f, .19f);
+        babyDoggo.SetActive(false);
+        spriteRenderer.enabled = true;
+        collider.offset = new Vector2(0, -.03f);
+        collider.size = new Vector2(.2f, .15f);
         //spriteRenderer.sprite = spriteAdult;
         isBaby = false;
 
