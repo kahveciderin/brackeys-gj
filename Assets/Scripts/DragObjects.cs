@@ -32,7 +32,7 @@ public class DragObjects : MonoBehaviour
 
             reachable = Vector3.Distance(gameObject.transform.position, player.transform.position);
             //Debug.Log(reachable);
-            if(reachable < 6){
+            if(reachable < 4){
             transform.Translate(new Vector2(Mathf.Round(mousePosition.x), Mathf.Round(mousePosition.y)));
 
             }

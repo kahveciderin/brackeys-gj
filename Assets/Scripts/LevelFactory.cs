@@ -11,8 +11,8 @@ public class LevelFactory : MonoBehaviour
     public int[][] traditionalLevels = new int[][]{
 
 
-        new int[] {3,4,0,-3,1,0,3,1,0,3,1,3,2,1},
-        new int[] {4,3,0,1,3,0,0,3,1,0,0,1,1,2}
+        new int[] {3,4,0,-3,1,0,3,1,0,3,1,3,2,1}
+        //new int[] {4,3,0,1,3,0,0,3,1,0,0,1,1,2}
 
     };
 
@@ -46,7 +46,7 @@ public class LevelFactory : MonoBehaviour
         Random.seed = seed;
         int x = Random.Range(11,20);
         int y = Random.Range(8,13);
-        int blockCnt = Random.Range((x * y ) / 15 - 3, (x * y ) / 15 + 3);
+        int blockCnt = Random.Range((x * y ) / 15 - 1, (x * y ) / 15 + 3);
         List<int> blockpos = new List<int>();
         for(int i = 0; i < blockCnt; i++){
             blockpos.Add(Random.Range((x + 2),(x - 1) * (y - 1)));
@@ -68,7 +68,14 @@ public class LevelFactory : MonoBehaviour
                 do{
                     add = Random.Range(-6,6);
                 }while(Mathf.Abs(add) == 2 || Mathf.Abs(add) == 0 || Mathf.Abs(add) == 4);
+
+                if(Random.Range(0,3) == 0){
+                    level.Add(-3);
+                }else{
+
                 level.Add(add);
+                
+                }
             }else{
                 level.Add(0);
             }

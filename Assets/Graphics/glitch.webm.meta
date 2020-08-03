@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e4a4af814a5c16dd9b814db1e1a06bdf
+guid: 8020f8013f6ac70a0925f3dca7047568
 VideoClipImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -14,7 +14,7 @@ VideoClipImporter:
   importAudio: 1
   targetSettings:
     0:
-      enableTranscoding: 1
+      enableTranscoding: 0
       codec: 0
       resizeFormat: 0
       aspectRatio: 0

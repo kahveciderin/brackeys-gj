@@ -1730,6 +1730,7 @@ MonoBehaviour:
   levelSelection: {fileID: 818099168}
   settings: {fileID: 1613809384}
   levelDisplay: {fileID: 818099170}
+  player: {fileID: 0}
 --- !u!4 &1709634725
 Transform:
   m_ObjectHideFlags: 0
@@ -1786,7 +1787,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1725256355}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: e4a4af814a5c16dd9b814db1e1a06bdf, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 8020f8013f6ac70a0925f3dca7047568, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}

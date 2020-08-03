@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 [RequireComponent(typeof(BetterController))]
 public class BetterPlayerMovement : MonoBehaviour
@@ -44,6 +45,8 @@ public class BetterPlayerMovement : MonoBehaviour
     public bool isPaused = false;
 
     public GameObject babyDoggo;
+
+    public ButtonManager buttonManager;
     void Start()
     {
         controller = GetComponent<BetterController>();
@@ -67,6 +70,10 @@ public class BetterPlayerMovement : MonoBehaviour
     void Update()
     {
         if(!isPaused){
+
+            if(Input.GetKeyDown(KeyCode.Escape)){
+                buttonManager.GameMenu();
+            }
         if (controller.collisions.above || controller.collisions.below)
         {
             velocity.y = 0;
@@ -113,6 +120,7 @@ public class BetterPlayerMovement : MonoBehaviour
                     lastRecorded = Time.time;
                     playermovs.Push(gameObject.transform.position);
                     lastRecorded = Time.time;
+                    stop = true;
                     StartCoroutine(reverseBaby());
                 }
 
@@ -141,15 +149,21 @@ public class BetterPlayerMovement : MonoBehaviour
     IEnumerator reverseBaby()
     {
 
+        var playermovsCountTest = playermovs.Count - 1;
+        Debug.Log(playermovs.Count - 1);
+
 
         revEffect.SetActive(true);
 
         Vector2 previousPos = transform.position;
-        for (int i = 0; i < playermovs.Count; i++)
+        int f = 0;
+        for (f = 0; f < playermovsCountTest+ 1; f++)
         {
 
             Vector2 playbackthis = playermovs.Pop();
             Vector2 deltaPos = playbackthis - previousPos;
+
+            gameObject.transform.position = playbackthis;
 
 
             for (int j = 1; j < interpolaiton + 1; j++)
@@ -163,6 +177,9 @@ public class BetterPlayerMovement : MonoBehaviour
             previousPos = playbackthis;
         }
 
+        Debug.Log(f);
+
+
         GameObject.FindGameObjectsWithTag("Blocker")[0].SetActive(false);
 
 
@@ -172,35 +189,25 @@ public class BetterPlayerMovement : MonoBehaviour
         spriteRenderer.enabled = false;
         isBaby = true;
 
-        for (int i = 0; i < babymovs.Count; i++)
-        {
-            Vector2 playbackthis = babymovs.Pop();
-            Vector2 deltaPos = playbackthis - previousPos;
-
-            for (int j = 1; j < interpolaiton + 1; j++)
-            {
-                Vector2 addThis = j * (deltaPos / new Vector2(interpolaiton, interpolaiton));
-                //gameObject.transform.position = previousPos + addThis;
-                yield return new WaitForSeconds(playSpeed);
-            }
-
-            previousPos = playbackthis;
-        }
-
 
         stop = false;
         revEffect.SetActive(false);
 
         controller.CalculateRaySpacing();
+
+
     }
 
     public void ResetPlayer()
     {
 
-        lastRecorded = Time.time;
+        lastRecorded = -1;
         ToAdult();
         playermovs.Clear();
-        transform.position = Vector3.zero;
+        transform.position = new Vector2(-7.62f, -2.231f);
+        playermovs.Push(gameObject.transform.position);
+        playermovs.Push(gameObject.transform.position);
+        playermovs.Push(gameObject.transform.position);
     }
     void ToAdult()
     {
