@@ -6,6 +6,7 @@ public class LevelLoader : MonoBehaviour
 
     public GameObject[] sprites;
     public Vector2 tileSize;
+    public GameObject blocker;
 
     public void LoadLevel(int[][] level){
              foreach (Transform child in transform)
@@ -28,6 +29,12 @@ public class LevelLoader : MonoBehaviour
              x = 0;
              y += 1;
          }
+        
+        GameObject block = Instantiate(blocker, new Vector3(x - 1, y/2, -1), Quaternion.identity);
+        block.transform.SetParent(gameObject.transform);
+        block.transform.localPosition = new Vector2(level[0].Length - 3, y/2);
+        block.transform.localScale = new Vector2(1,y*2);
+
     }
 
     public int[][] ConvertLevel(int[] data){
@@ -45,6 +52,10 @@ public class LevelLoader : MonoBehaviour
             final.Add(thisrow.ToArray());
 
         }
+
+
+        
+
 
         return final.ToArray();
     }

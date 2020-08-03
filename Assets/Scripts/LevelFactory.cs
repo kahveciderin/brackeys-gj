@@ -47,7 +47,7 @@ public class LevelFactory : MonoBehaviour
             
         }
         int goalHeight = Random.Range(2, y-1);
-        Debug.Log(goalHeight);
+        //Debug.Log(goalHeight);
         List<int> level = new List<int>();
         level.Add(x);
         level.Add(y);

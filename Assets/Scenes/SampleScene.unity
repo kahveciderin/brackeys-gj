@@ -1144,6 +1144,7 @@ MonoBehaviour:
   - {fileID: 5613150974346417050, guid: fbb9c4c41a1e20b169e9063fe21776ae, type: 3}
   - {fileID: 5613150974346417050, guid: be2d6dc528a0617ff9ea5662efdbfb3e, type: 3}
   tileSize: {x: 6.3, y: 6.3}
+  blocker: {fileID: 2589408137289008275, guid: b377e1f1ad5b51b93a6f851161eecf71, type: 3}
 --- !u!114 &1204379744
 MonoBehaviour:
   m_ObjectHideFlags: 0
