@@ -17,7 +17,9 @@ public class LevelFactory : MonoBehaviour
     };
 
     void Start(){
-        levelloader.LoadLevel(levelloader.ConvertLevel(traditionalLevels[levelid]));
+        levelid = PlayerPrefs.GetInt("levelToLoad");
+
+       LoadLevel(levelid);
     }
 
     public void OnLevelEnd(){
@@ -25,15 +27,19 @@ public class LevelFactory : MonoBehaviour
         player.ResetPlayer();
         levelid++;
 
-       /// if(levelid < traditionalLevels.Length){
-
-       /// levelloader.LoadLevel(levelloader.ConvertLevel(traditionalLevels[levelid]));
-       /// }
-       /// else{
-            levelloader.LoadLevel(levelloader.ConvertLevel(GenerateLevel(levelid)));
-       ///}
+       LoadLevel(levelid);
     }
 
+
+    void LoadLevel(int id){
+        if(id < traditionalLevels.Length){
+
+       levelloader.LoadLevel(levelloader.ConvertLevel(traditionalLevels[id]));
+       }
+       else{
+            levelloader.LoadLevel(levelloader.ConvertLevel(GenerateLevel(id)));
+       }
+    }
 
     int[] GenerateLevel(int seed){
 
