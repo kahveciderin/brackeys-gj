@@ -44,8 +44,8 @@ public class LevelFactory : MonoBehaviour
     int[] GenerateLevel(int seed){
 
         Random.seed = seed;
-        int x = 15;
-        int y = 8;
+        int x = Random.Range(11,20);
+        int y = Random.Range(8,13);
         int blockCnt = Random.Range((x * y ) / 15 - 3, (x * y ) / 15 + 3);
         List<int> blockpos = new List<int>();
         for(int i = 0; i < blockCnt; i++){

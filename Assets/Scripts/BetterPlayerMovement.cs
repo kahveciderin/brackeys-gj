@@ -41,7 +41,7 @@ public class BetterPlayerMovement : MonoBehaviour
 
     public int interpolaiton = 6;
 
-
+    public bool isPaused = false;
     void Start()
     {
         controller = GetComponent<BetterController>();
@@ -64,7 +64,7 @@ public class BetterPlayerMovement : MonoBehaviour
 
     void Update()
     {
-
+        if(!isPaused){
         if (controller.collisions.above || controller.collisions.below)
         {
             velocity.y = 0;
@@ -130,6 +130,8 @@ public class BetterPlayerMovement : MonoBehaviour
             transform.localScale = new Vector2(5,5);
         }else if(velocity.x < 0){
             transform.localScale = new Vector2(-5,5);
+        }
+
         }
     }
 

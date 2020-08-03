@@ -14,10 +14,14 @@ public class ButtonManager : MonoBehaviour
 
     public Text levelDisplay;
 
-
+    public BetterPlayerMovement player;
 
     public static int levelNo = 1;
 
+    public void Start(){
+        levelNo = PlayerPrefs.GetInt("levelToLoad") + 1;
+        levelDisplay.text =levelNo.ToString();
+    }
     public void StartPressed(){
          mainButtons.SetActive(false);
          levelSelection.SetActive(true);
@@ -47,5 +51,24 @@ public class ButtonManager : MonoBehaviour
         if(levelNo < 1) levelNo = 1;
         if(levelNo > 2147483647) levelNo = 2147483647;
         levelDisplay.text =levelNo.ToString();
+    }
+
+
+    public void GameMenu(){
+        settings.SetActive(true);
+        player.isPaused = true;
+    }
+
+    public void Resume(){
+        settings.SetActive(false);
+        player.isPaused = false;
+
+    }
+
+    public void Restart(){
+        SceneManager.LoadScene(1);
+    }
+    public void BackToMenu(){
+        SceneManager.LoadScene(0);
     }
 }
