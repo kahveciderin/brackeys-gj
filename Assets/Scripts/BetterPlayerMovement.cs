@@ -138,7 +138,6 @@ public class BetterPlayerMovement : MonoBehaviour
     {
 
 
-
         revEffect.SetActive(true);
 
         Vector2 previousPos = transform.position;
@@ -159,6 +158,8 @@ public class BetterPlayerMovement : MonoBehaviour
             babymovs.Push(playbackthis);
             previousPos = playbackthis;
         }
+
+        GameObject.FindGameObjectsWithTag("Blocker")[0].SetActive(false);
 
 
         collider.offset = new Vector2(0, -.055f);
