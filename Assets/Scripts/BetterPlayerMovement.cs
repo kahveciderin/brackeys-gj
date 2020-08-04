@@ -69,11 +69,13 @@ public class BetterPlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if(!isPaused){
 
-            if(Input.GetKeyDown(KeyCode.Escape)){
+        if(Input.GetKeyDown(KeyCode.Escape)){
                 buttonManager.GameMenu();
             }
+        if(!isPaused){
+
+            
         if (controller.collisions.above || controller.collisions.below)
         {
             velocity.y = 0;

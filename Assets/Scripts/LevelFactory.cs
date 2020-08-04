@@ -32,6 +32,7 @@ public class LevelFactory : MonoBehaviour
 
 
     void LoadLevel(int id){
+        PlayerPrefs.SetInt("levelToLoad", id);
         if(id < traditionalLevels.Length){
 
        levelloader.LoadLevel(levelloader.ConvertLevel(traditionalLevels[id]));

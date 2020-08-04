@@ -18,6 +18,7 @@ public class ButtonManager : MonoBehaviour
 
     public static int levelNo = 1;
 
+
     public void Start(){
         levelNo = PlayerPrefs.GetInt("levelToLoad") + 1;
         levelDisplay.text =levelNo.ToString();
@@ -55,8 +56,17 @@ public class ButtonManager : MonoBehaviour
 
 
     public void GameMenu(){
+
+        if(player.isPaused){
+            settings.SetActive(false);
+        player.isPaused = false;
+
+
+        }else{
+
         settings.SetActive(true);
         player.isPaused = true;
+        }
     }
 
     public void Resume(){

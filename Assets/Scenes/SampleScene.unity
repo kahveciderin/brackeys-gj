@@ -781,7 +781,7 @@ MonoBehaviour:
   spriteBaby: {fileID: 21300000, guid: 6ce50d774fb74cadb82acf4e02e7437a, type: 3}
   spriteAdult: {fileID: 21300000, guid: f791714192dfa7b898b8827ec33e28e5, type: 3}
   revEffect: {fileID: 570094485}
-  recordSpeed: 0.1
+  recordSpeed: 2
   playSpeed: 0
   interpolaiton: 6
   isPaused: 0
@@ -1402,7 +1402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 741564405}
   smoothSpeed: 0.03
-  offset: {x: 0, y: 3, z: -5.46}
+  offset: {x: 0, y: 2, z: -5.46}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
