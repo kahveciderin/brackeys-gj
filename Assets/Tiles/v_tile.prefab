@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8771053659846088488}
   - component: {fileID: 6679742696334927755}
-  - component: {fileID: 5414086793097119877}
   - component: {fileID: -6154598465985322913}
+  - component: {fileID: 169029040027256318}
   m_Layer: 8
-  m_Name: wall_tile
+  m_Name: v_tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 559bacdf125fbfaa38e299045839f6dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7542aef89f17dc131a08729cdbd218b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,8 +84,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5414086793097119877
-BoxCollider2D:
+--- !u!114 &-6154598465985322913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5613150974346417050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 251c82ba8e49612809d516fc396d8b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!60 &169029040027256318
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -107,18 +119,8 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.24, y: 0.24}
-  m_EdgeRadius: 0
---- !u!114 &-6154598465985322913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5613150974346417050}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 251c82ba8e49612809d516fc396d8b2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Points:
+    m_Paths:
+    - - {x: 0, y: 0.09}
+      - {x: -0.12, y: -0.12}
+      - {x: 0.12, y: -0.12}

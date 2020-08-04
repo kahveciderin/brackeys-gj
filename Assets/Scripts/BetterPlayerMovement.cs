@@ -15,7 +15,7 @@ public class BetterPlayerMovement : MonoBehaviour
 
     float gravity;
     float jumpVelocity;
-    Vector3 velocity;
+    public Vector3 velocity;
     float velocityXSmoothing;
 
     BetterController controller;
@@ -185,7 +185,7 @@ public class BetterPlayerMovement : MonoBehaviour
         GameObject.FindGameObjectsWithTag("Blocker")[0].SetActive(false);
 
 
-        collider.offset = new Vector2(-0.03f, -.06f);
+        collider.offset = new Vector2(0.015f, -0.01f);
         collider.size = new Vector2(.18f, .12f);
         babyDoggo.SetActive(true);
         spriteRenderer.enabled = false;

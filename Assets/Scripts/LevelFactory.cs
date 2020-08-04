@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class LevelFactory : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class LevelFactory : MonoBehaviour
     public LevelLoader levelloader;
     public Camera camera;
     public BetterPlayerMovement player;
+
+    public int useBlocks;
+
+    public int[] dontUseBlocks;
     public int[][] traditionalLevels = new int[][]{
 
 
@@ -67,10 +72,10 @@ public class LevelFactory : MonoBehaviour
 
                 int add = 0;
                 do{
-                    add = Random.Range(-6,6);
-                }while(Mathf.Abs(add) == 2 || Mathf.Abs(add) == 0 || Mathf.Abs(add) == 4);
+                    add = Random.Range(-useBlocks,useBlocks);
+                }while(dontUseBlocks.Contains(Mathf.Abs(add)));
 
-                if(Random.Range(0,3) == 0){
+                if(Random.Range(0,5) == 0){
                     level.Add(-3);
                 }else{
 
