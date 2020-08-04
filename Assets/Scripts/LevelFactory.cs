@@ -75,7 +75,7 @@ public class LevelFactory : MonoBehaviour
                     add = Random.Range(-useBlocks,useBlocks);
                 }while(dontUseBlocks.Contains(Mathf.Abs(add)));
 
-                if(Random.Range(0,5) == 0){
+                if(Random.Range(0,1000) == 0){
                     level.Add(-3);
                 }else{
 

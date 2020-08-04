@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpecialEffects : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class SpecialEffects : MonoBehaviour
             if(spring)
             player.GetComponent<BetterPlayerMovement>().velocity.y = 10;
             if(deadly)
-            player.GetComponent<BetterPlayerMovement>().ResetPlayer();
+            SceneManager.LoadScene(1);
         }
     }
 }
