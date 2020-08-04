@@ -25,7 +25,7 @@ public class BetterPlayerMovement : MonoBehaviour
     public Sprite spriteAdult;
     SpriteRenderer spriteRenderer;
 
-    bool isBaby = false;
+    public bool isBaby = false;
     BoxCollider2D collider;
     public GameObject revEffect;
 
@@ -47,6 +47,8 @@ public class BetterPlayerMovement : MonoBehaviour
     public GameObject babyDoggo;
 
     public ButtonManager buttonManager;
+
+    public bool direc = true;
     void Start()
     {
         controller = GetComponent<BetterController>();
@@ -92,7 +94,7 @@ public class BetterPlayerMovement : MonoBehaviour
             Vector2 input;
             if (isBaby)
             {
-                input = new Vector2(1, 0);
+                input = new Vector2(direc ? 1 : -1, 0);
             }
             else
             {
@@ -210,6 +212,7 @@ public class BetterPlayerMovement : MonoBehaviour
         playermovs.Push(gameObject.transform.position);
         playermovs.Push(gameObject.transform.position);
         playermovs.Push(gameObject.transform.position);
+        direc = true;
     }
     void ToAdult()
     {

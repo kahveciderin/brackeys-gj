@@ -8,6 +8,7 @@ public class SpecialEffects : MonoBehaviour
 
     public bool spring;
     public bool deadly;
+    public bool changeDir;
     
     GameObject player;
     void Start()
@@ -22,6 +23,12 @@ public class SpecialEffects : MonoBehaviour
             player.GetComponent<BetterPlayerMovement>().velocity.y = 10;
             if(deadly)
             SceneManager.LoadScene(1);
+            if(changeDir){
+
+                if(player.GetComponent<BetterPlayerMovement>().isBaby){
+                player.GetComponent<BetterPlayerMovement>().direc = ! player.GetComponent<BetterPlayerMovement>().direc;
+                }
+            }
         }
     }
 }

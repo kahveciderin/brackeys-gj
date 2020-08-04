@@ -788,6 +788,7 @@ MonoBehaviour:
   isPaused: 0
   babyDoggo: {fileID: 805155513}
   buttonManager: {fileID: 542113959}
+  dir: 1
 --- !u!212 &741564408
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1755,10 +1756,16 @@ MonoBehaviour:
   - {fileID: 5613150974346417050, guid: 49840e923303e4caa9ea80707e2c796c, type: 3}
   - {fileID: 5613150974346417050, guid: fbb9c4c41a1e20b169e9063fe21776ae, type: 3}
   - {fileID: 5613150974346417050, guid: be2d6dc528a0617ff9ea5662efdbfb3e, type: 3}
-  - {fileID: 5613150974346417050, guid: 447477c0ce62c431698220f7e72e145e, type: 3}
+  - {fileID: 5613150974346417050, guid: 05746bd559cd67bf5afb18b73f53f4ec, type: 3}
   - {fileID: 5613150974346417050, guid: cf3e64653aa68d320b4e644513f0ebd2, type: 3}
   - {fileID: 5613150974346417050, guid: 9ced88f5c590a82f0af7bdfe0f527bb9, type: 3}
-  - {fileID: 5613150974346417050, guid: 05746bd559cd67bf5afb18b73f53f4ec, type: 3}
+  - {fileID: 5613150974346417050, guid: e3ad0b35fcc1394ea8b060b6cde69e39, type: 3}
+  - {fileID: 5613150974346417050, guid: 3cedee3522e386fce896d8511f448ec0, type: 3}
+  - {fileID: 5613150974346417050, guid: 6bbdbef839c95824ca0d8c0579c37e77, type: 3}
+  - {fileID: 5613150974346417050, guid: 8c1ed419e4106b47aa7156bf43538b20, type: 3}
+  - {fileID: 5613150974346417050, guid: 618ccb2b53131d915b9ceace4afe44e4, type: 3}
+  - {fileID: 5613150974346417050, guid: f6e936f6e25f5be1caf6e7a452902c9c, type: 3}
+  - {fileID: 5613150974346417050, guid: 1f65c72584404866483a26cafd7c0200, type: 3}
   tileSize: {x: 6.3, y: 6.3}
   blocker: {fileID: 2589408137289008275, guid: b377e1f1ad5b51b93a6f851161eecf71, type: 3}
 --- !u!114 &1204379744
@@ -1776,7 +1783,7 @@ MonoBehaviour:
   levelloader: {fileID: 1204379743}
   camera: {fileID: 963194229}
   player: {fileID: 741564407}
-  useBlocks: 10
+  useBlocks: 17
   dontUseBlocks: 000000000200000004000000
 --- !u!1 &1249656757
 GameObject:
