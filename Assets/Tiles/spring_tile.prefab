@@ -138,6 +138,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spring: 1
   deadly: 0
+  changeDir: 0
 --- !u!50 &8070231624000371705
 Rigidbody2D:
   serializedVersion: 4
