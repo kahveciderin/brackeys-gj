@@ -574,7 +574,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &223748321
 GameObject:
@@ -943,11 +943,11 @@ VideoPlayer:
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 963194227}
-  m_TargetTexture: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: f704a3efbdba52ceebc90e0bb5538ea0, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex
-  m_RenderMode: 3
+  m_RenderMode: 2
   m_AspectRatio: 2
   m_DataSource: 0
   m_PlaybackSpeed: 1
@@ -1469,7 +1469,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741564403}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2bf0dd8cebdf2a438be12d9db2570de, type: 3}
   m_Name: 
@@ -1547,6 +1547,7 @@ MonoBehaviour:
   grid: {fileID: 462693647}
   gridRed: {fileID: 179468730}
   direc: 1
+  audioManager: {fileID: 839276368}
 --- !u!212 &741564408
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1918,6 +1919,78 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &839276367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 839276369}
+  - component: {fileID: 839276368}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &839276368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839276367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bc460149cdc6d9f59338ab81a563e2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mixerGroup: {fileID: 0}
+  sounds:
+  - name: footstep
+    clip: {fileID: 8300000, guid: d7c870741b98ae680b7c5304655bb0d9, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: hurt
+    clip: {fileID: 8300000, guid: ee6a416ec9c116437a7558ad4a8e4ea1, type: 3}
+    volume: 0.5
+    volumeVariance: 0
+    pitch: 1
+    pitchVariance: 0
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+  - name: jump
+    clip: {fileID: 8300000, guid: 9660ea767475eb1379b44dfdd9173fac, type: 3}
+    volume: 0.3
+    volumeVariance: 0.1
+    pitch: 1
+    pitchVariance: 0.1
+    loop: 0
+    mixerGroup: {fileID: 0}
+    source: {fileID: 0}
+--- !u!4 &839276369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839276367}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &863349253
 GameObject:
   m_ObjectHideFlags: 0
@@ -2311,6 +2384,7 @@ Transform:
   - {fileID: 570094486}
   - {fileID: 448621196}
   - {fileID: 223748322}
+  - {fileID: 1767035541}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3075,6 +3149,7 @@ MonoBehaviour:
   - {fileID: 5613150974346417050, guid: 1f65c72584404866483a26cafd7c0200, type: 3}
   tileSize: {x: 6.3, y: 6.3}
   blocker: {fileID: 2589408137289008275, guid: b377e1f1ad5b51b93a6f851161eecf71, type: 3}
+  background: {fileID: 1767035540}
 --- !u!114 &1204379744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3558,7 +3633,7 @@ Transform:
   m_GameObject: {fileID: 1574024646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1767035541}
   m_RootOrder: 0
@@ -3614,6 +3689,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1627145620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1627145621}
+  m_Layer: 0
+  m_Name: bg_-1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1627145621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627145620}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1767035541}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1738227691
 GameObject:
   m_ObjectHideFlags: 0
@@ -3704,9 +3809,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767035540}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.5, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 2}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalScale: {x: 8, y: 8, z: 2}
   m_Children:
   - {fileID: 1574024647}
   - {fileID: 176499199}
@@ -3715,8 +3820,9 @@ Transform:
   - {fileID: 1060130315}
   - {fileID: 230124555}
   - {fileID: 1011915766}
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  - {fileID: 1627145621}
+  m_Father: {fileID: 963194228}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1767035542
 MonoBehaviour:
@@ -3732,6 +3838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 963194225}
   parallaxBg:
+  - {fileID: 1627145620}
   - {fileID: 1574024646}
   - {fileID: 176499198}
   - {fileID: 864316671}
@@ -3739,7 +3846,8 @@ MonoBehaviour:
   - {fileID: 1060130314}
   - {fileID: 230124554}
   - {fileID: 1011915765}
-  moveDistance: 0.1
+  moveDistance: 0.01
+  offset: {x: 0, y: 0}
 --- !u!1 &1795116538
 GameObject:
   m_ObjectHideFlags: 0

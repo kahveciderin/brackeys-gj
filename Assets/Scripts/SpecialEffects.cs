@@ -23,13 +23,17 @@ public class SpecialEffects : MonoBehaviour
     void OnTriggerEnter2D(Collider2D coll){
         if(coll.gameObject == player){
 
-            if(spring)
+            if(spring){
+
+                player.GetComponent<BetterPlayerMovement>().audioManager.Play("jump");
             player.GetComponent<BetterPlayerMovement>().velocity.y = 10;
+            }
             if(deadly){
                 //player.GetComponent<BetterPlayerMovement>().ResetPlayer();
 
                 particle.SetActive(true);
                 player.GetComponent<BetterPlayerMovement>().stop = true;
+                player.GetComponent<BetterPlayerMovement>().audioManager.Play("hurt");
                 StartCoroutine(ResetGame());
             }
             //SceneManager.LoadScene(1);

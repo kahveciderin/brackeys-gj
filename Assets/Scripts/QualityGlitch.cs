@@ -16,10 +16,12 @@ public class QualityGlitch : MonoBehaviour
         
         if(QualitySettings.GetQualityLevel() == 5){
             glitchEffect.SetActive(true);
-            bloomLayer.intensity.value = 2.55f;
+            bloomLayer.intensity.value = 0.64f;
+            bloomLayer.threshold.value = 0.59f;
         }else{
             glitchEffect.SetActive(false);
-            bloomLayer.intensity.value = 0.69f;
+            bloomLayer.intensity.value = 0.64f;
+            bloomLayer.threshold.value = 0.59f;
         }
     }
 }

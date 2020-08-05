@@ -9,12 +9,14 @@ public class Parallax : MonoBehaviour
     public GameObject[] parallaxBg;
     public float moveDistance;
     
+
+    public Vector2 offset;
     void Update()
     {
         Vector2 distance = new Vector2(0 - camera.transform.position.x, 0 - camera.transform.position.y);
 
         for(int i = 0; i < parallaxBg.Length; i++){
-            parallaxBg[i].transform.position = distance * new Vector2(i * moveDistance ,i * moveDistance);
+            parallaxBg[i].transform.localPosition = distance * new Vector2((parallaxBg.Length - i) * moveDistance ,(parallaxBg.Length - i) * moveDistance) + offset;
         }
     }
 }

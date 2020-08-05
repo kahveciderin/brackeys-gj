@@ -53,6 +53,8 @@ public class BetterPlayerMovement : MonoBehaviour
     public GameObject grid;
     public GameObject gridRed;
     public bool direc = true;
+
+    public AudioManager audioManager;
     void Start()
     {
         controller = GetComponent<BetterController>();
@@ -85,16 +87,26 @@ public class BetterPlayerMovement : MonoBehaviour
         if (controller.collisions.above || controller.collisions.below)
         {
             velocity.y = 0;
+            //animator.SetBool("isFalling", false);
+        }
+
+        if (velocity.y < 1.3f)
+        {
+            animator.SetBool("isFalling", true);
+            animator.SetBool("isRunning", false);
+        }else{
             animator.SetBool("isFalling", false);
         }
 
-        if (velocity.y < 0f)
-        {
-            animator.SetBool("isFalling", true);
+        if(velocity.y > 0.4f){
+             animator.SetTrigger("Jumping");
         }
 
+
+        
         if (!stop)
         {
+
             Vector2 input;
             if (isBaby)
             {
@@ -109,7 +121,8 @@ public class BetterPlayerMovement : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space) && controller.collisions.below)
                 {
                     velocity.y = jumpVelocity;
-                    animator.SetTrigger("Jumping");
+                    audioManager.Play("jump");
+                   
                 }
 
 
