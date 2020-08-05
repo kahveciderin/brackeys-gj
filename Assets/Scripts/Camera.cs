@@ -9,6 +9,8 @@ public class Camera : MonoBehaviour {
 
 	public bool shake = false;
 
+	public float shakeSpeed = 1f;
+
 	//public bool stop = false;
 
 	void FixedUpdate ()
@@ -18,7 +20,7 @@ public class Camera : MonoBehaviour {
      {
 		Vector3 desiredPosition = target.position + offset;
 
-		if(shake)	desiredPosition += new Vector3(Random.Range(-2,2), Random.Range(-2,2), Random.Range(-2,2));
+		if(shake)	desiredPosition += new Vector3(Random.Range(-shakeSpeed,shakeSpeed),Random.Range(-shakeSpeed,shakeSpeed),Random.Range(-shakeSpeed,shakeSpeed));
 		Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
 		transform.position = smoothedPosition;
 	 }

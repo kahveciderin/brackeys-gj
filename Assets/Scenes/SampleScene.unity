@@ -734,7 +734,7 @@ VideoPlayer:
   m_VideoClip: {fileID: 32900000, guid: 8020f8013f6ac70a0925f3dca7047568, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 0}
+  m_TargetCamera: {fileID: 963194227}
   m_TargetTexture: {fileID: 0}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
@@ -1001,6 +1001,7 @@ GameObject:
   - component: {fileID: 542113957}
   - component: {fileID: 542113959}
   - component: {fileID: 542113960}
+  - component: {fileID: 542113961}
   m_Layer: 9
   m_Name: PostProcessing
   m_TagString: Untagged
@@ -1073,6 +1074,19 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 8444fd00729917f2699022c5297d6aa1, type: 2}
+--- !u!114 &542113961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542113956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a5a9cdd9bc769dea378ff0d2aba048, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  glitchEffect: {fileID: 448621195}
 --- !u!1 &570094485
 GameObject:
   m_ObjectHideFlags: 0
@@ -1943,6 +1957,7 @@ MonoBehaviour:
   smoothSpeed: 0.125
   offset: {x: 0, y: 2, z: -5.46}
   shake: 0
+  shakeSpeed: 4
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
