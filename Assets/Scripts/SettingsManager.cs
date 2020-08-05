@@ -13,7 +13,10 @@ public class SettingsManager : MonoBehaviour
     {
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
-        qualityDropdown.value = QualitySettings.GetQualityLevel();
+
+        int qual = 5 - PlayerPrefs.GetInt("quality");
+        qualityDropdown.value = qual;
+        QualitySettings.SetQualityLevel(qual);
         fullscreen.isOn = Screen.fullScreen;
         List<string> options = new List<string>();
 
@@ -27,6 +30,7 @@ public class SettingsManager : MonoBehaviour
 
     public void SetQuality(int qualityIndex){
         QualitySettings.SetQualityLevel(qualityIndex);
+        PlayerPrefs.SetInt("quality", 5 - qualityIndex);
     }
 
     public void SetFullscreen(bool fullscreen){
