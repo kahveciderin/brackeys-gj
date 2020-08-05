@@ -55,7 +55,7 @@ public class SpecialEffects : MonoBehaviour
         cam.shake = true;
         yield return new WaitForSeconds(.1f);
         cam.shake = false;
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.5f);
         SceneManager.LoadScene(1);
     }
 }

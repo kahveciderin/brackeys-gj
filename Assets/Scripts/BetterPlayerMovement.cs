@@ -51,6 +51,7 @@ public class BetterPlayerMovement : MonoBehaviour
 
 
     public GameObject grid;
+    public GameObject gridRed;
     public bool direc = true;
     void Start()
     {
