@@ -13,7 +13,7 @@ public class DragObjects : MonoBehaviour
     Collider2D collider;
 
     void Start(){
-        collider = GetComponent<BoxCollider2D>();
+        collider = GetComponent<Collider2D>(); 
         player = GameObject.Find("Adult");
         grid = player.GetComponent<BetterPlayerMovement>().grid;
         gridRed = player.GetComponent<BetterPlayerMovement>().gridRed;
