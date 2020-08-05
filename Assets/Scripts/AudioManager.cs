@@ -11,11 +11,14 @@ public class AudioManager : MonoBehaviour
 
 	public Sound[] sounds;
 
+
+
 	void Awake()
 	{
 		if (instance != null)
 		{
-			//Destroy(gameObject);
+			Destroy(gameObject);
+			return;
 		}
 		else
 		{
@@ -46,6 +49,10 @@ public class AudioManager : MonoBehaviour
 		s.source.pitch = s.pitch * (1f + UnityEngine.Random.Range(-s.pitchVariance / 2f, s.pitchVariance / 2f));
 
 		s.source.Play();
+	}
+
+	public AudioSource GetSound(string sound){
+		return Array.Find(sounds, item => item.name == sound).source;
 	}
 
 }

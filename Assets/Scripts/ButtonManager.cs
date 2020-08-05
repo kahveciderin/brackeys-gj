@@ -17,9 +17,10 @@ public class ButtonManager : MonoBehaviour
     public BetterPlayerMovement player;
 
     public static int levelNo = 1;
-
+    public AudioManager audioManager;
 
     public void Start(){
+        audioManager.Play("theme");
         levelNo = PlayerPrefs.GetInt("levelToLoad") + 1;
         levelDisplay.text =levelNo.ToString();
     }

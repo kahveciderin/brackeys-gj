@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(BetterController))]
 public class BetterPlayerMovement : MonoBehaviour
@@ -54,9 +55,12 @@ public class BetterPlayerMovement : MonoBehaviour
     public GameObject gridRed;
     public bool direc = true;
 
+    
     public AudioManager audioManager;
     void Start()
     {
+        
+        
         controller = GetComponent<BetterController>();
 
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
@@ -71,12 +75,16 @@ public class BetterPlayerMovement : MonoBehaviour
         lastRecorded = Time.time;
         ToAdult();
 
-
+        audioManager = FindObjectOfType<AudioManager>();
         //print ("Gravity: " + gravity + "  Jump Velocity: " + jumpVelocity);
     }
 
     void Update()
     {
+
+        if(audioManager == null){
+            audioManager = FindObjectOfType<AudioManager>();
+        }
 
         if(Input.GetKeyDown(KeyCode.Escape)){
                 buttonManager.GameMenu();
@@ -170,8 +178,11 @@ public class BetterPlayerMovement : MonoBehaviour
     IEnumerator reverseBaby()
     {
 
+        AudioSource theme = audioManager.GetSound("theme");
+
+        theme.pitch = -1;
         var playermovsCountTest = playermovs.Count - 1;
-        Debug.Log(playermovs.Count - 1);
+        //Debug.Log(playermovs.Count - 1);
 
 
         revEffect.SetActive(true);
@@ -198,7 +209,7 @@ public class BetterPlayerMovement : MonoBehaviour
             previousPos = playbackthis;
         }
 
-        Debug.Log(f);
+        //Debug.Log(f);
 
 
         GameObject.FindGameObjectsWithTag("Blocker")[0].SetActive(false);
@@ -216,7 +227,7 @@ public class BetterPlayerMovement : MonoBehaviour
 
         controller.CalculateRaySpacing();
 
-
+    theme.pitch = 1;
     }
 
     public void ResetPlayer()
