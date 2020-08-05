@@ -34,7 +34,7 @@ public class BetterPlayerMovement : MonoBehaviour
 
     public float playSpeed = 0.1f;
 
-    bool stop;
+    public bool stop;
     Stack<Vector2> playermovs = new Stack<Vector2>();
     Stack<Vector2> babymovs = new Stack<Vector2>();
 
@@ -47,6 +47,7 @@ public class BetterPlayerMovement : MonoBehaviour
     public GameObject babyDoggo;
 
     public ButtonManager buttonManager;
+    public GameObject deathParticle;
 
     public bool direc = true;
     void Start()
