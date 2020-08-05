@@ -49,6 +49,8 @@ public class BetterPlayerMovement : MonoBehaviour
     public ButtonManager buttonManager;
     public GameObject deathParticle;
 
+
+    public GameObject grid;
     public bool direc = true;
     void Start()
     {
