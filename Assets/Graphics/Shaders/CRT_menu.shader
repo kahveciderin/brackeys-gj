@@ -11,7 +11,7 @@
     //#    Software Foundation; either version 2 of the License, or (at your option)
     //#    any later version.
     //#    -->
-    Shader "Custom/CRT"
+    Shader "Custom/CRT-menu"
     {
         Properties
         {
@@ -97,10 +97,10 @@
                 float3 dotMaskWeights = lerp(rgb1, rgb2, floor(fmod(_Factor, _dotWeight)));
                 res *= dotMaskWeights;
              
-                //return float4(pow(res, float3(1.0f / _Gamma, 1.0f / _Gamma, 1.0f / _Gamma)), 1.0f);
+                return float4(pow(res, float3(1.0f / _Gamma, 1.0f / _Gamma, 1.0f / _Gamma)), 1.0f);
                 //return .5f;
                 //return float4(pow(res, float3(1.0f / ScreenGamma.x, 1.0f / ScreenGamma.y, 1.0f / ScreenGamma.z)), 1.0f);
-                return float4(res * 0.65f, 0.5f);
+                //return float4(res * 0.65f, 0.5f);
              
             }
             ENDCG

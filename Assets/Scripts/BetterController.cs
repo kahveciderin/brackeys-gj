@@ -5,6 +5,7 @@ using System.Collections;
 public class BetterController : MonoBehaviour {
 
 	public LayerMask collisionMask;
+	public LayerMask oneWay;
 
 	const float skinWidth = .015f;
 	public int horizontalRayCount = 4;
@@ -98,9 +99,15 @@ public class BetterController : MonoBehaviour {
 			rayOrigin += Vector2.right * (verticalRaySpacing * i + velocity.x);
 			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask);
 
+			RaycastHit2D hitplat;
+			if(velocity.y < 0){
+				hitplat = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, oneWay);
+			}else{
+				hitplat = hit;
+			}
 			Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength,Color.red);
 
-			if (hit) {
+			if (hit || hitplat) {
 				velocity.y = (hit.distance - skinWidth) * directionY;
 				rayLength = hit.distance;
 

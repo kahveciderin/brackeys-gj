@@ -2927,7 +2927,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8cb2724a869530895921814ba7bde9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  curShader: {fileID: 4800000, guid: 3ab8b15398830695ea3a187bcc0b3682, type: 3}
+  curShader: {fileID: 4800000, guid: 7192a6441225cecbda42fa3c7fa1852e, type: 3}
   Distortion: 0.78
   Gamma: 0.29
   YExtra: 0.5
