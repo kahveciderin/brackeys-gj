@@ -11,6 +11,7 @@ public class LevelFactory : MonoBehaviour
     public BetterPlayerMovement player;
 
     public int useBlocks;
+    public int last;
     public GameObject[] tuto;
 
     public int[] dontUseBlocks;
@@ -82,7 +83,7 @@ public class LevelFactory : MonoBehaviour
         Random.seed = seed;
         int x = Random.Range(11,20);
         int y = Random.Range(8,13);
-        int blockCnt = Random.Range((x * y ) / 15 - 1, (x * y ) / 15 + 3);
+        int blockCnt = Random.Range((x * y ) / 15 - 1, (x * y ) / 15 + 7);
         List<int> blockpos = new List<int>();
         for(int i = 0; i < blockCnt; i++){
             blockpos.Add(Random.Range((x + 2),(x - 1) * (y - 1)));
@@ -105,10 +106,14 @@ public class LevelFactory : MonoBehaviour
                     add = Random.Range(-useBlocks,useBlocks);
                 }while(dontUseBlocks.Contains(Mathf.Abs(add)));
 
-                if(Random.Range(0,20) == 0){
+                if(Random.Range(0,14) == 0){
                     level.Add(-3);
                 }else{
 
+
+                if(Mathf.Abs(add) == useBlocks){
+                    add = Random.Range(useBlocks, last);
+                }
                 level.Add(add);
                 
                 }

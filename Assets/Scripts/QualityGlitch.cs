@@ -7,6 +7,8 @@ public class QualityGlitch : MonoBehaviour
 {
 
     public GameObject glitchEffect;
+
+    public CRT crt;
     Bloom bloomLayer = null;
     void Start()
     {
@@ -22,6 +24,17 @@ public class QualityGlitch : MonoBehaviour
             glitchEffect.SetActive(false);
             bloomLayer.intensity.value = 0.64f;
             bloomLayer.threshold.value = 0.59f;
+        }
+
+        if(QualitySettings.GetQualityLevel() == 0){
+            crt.enabled = false;
+            volume.enabled = false;
+        }else if(QualitySettings.GetQualityLevel() == 1){
+            crt.enabled = false;
+            volume.enabled = true;
+        }else{
+            crt.enabled = true;
+            volume.enabled = true;
         }
     }
 }
