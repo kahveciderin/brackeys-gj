@@ -12,6 +12,7 @@ public class DragObjects : MonoBehaviour
     GameObject gridRed;
     Collider2D collider;
 
+    public bool canOnPlayer = false;
 
     SpriteRenderer spriteRenderer;
     void Start(){
@@ -35,7 +36,9 @@ public class DragObjects : MonoBehaviour
         collider.enabled = true;
         spriteRenderer.color = new Color(255f, 255f, 255f, 255f);
 
-        if(Vector3.Distance(gameObject.transform.position, player.transform.position) < 0.7){
+        if(Vector3.Distance(gameObject.transform.position, player.transform.position) < 0.7 && !canOnPlayer){
+
+            
             gameObject.transform.position = gameObject.transform.position + new Vector3(0,1,0);
 
 

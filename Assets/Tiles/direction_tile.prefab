@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -6154598465985322913}
   - component: {fileID: -6447486541424571486}
   - component: {fileID: 8070231624000371705}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: direction_tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16, y: 0.16}
+  m_Size: {x: 0.14, y: 0.14}
   m_EdgeRadius: 0
 --- !u!114 &-6154598465985322913
 MonoBehaviour:
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251c82ba8e49612809d516fc396d8b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canOnPlayer: 1
 --- !u!114 &-6447486541424571486
 MonoBehaviour:
   m_ObjectHideFlags: 0

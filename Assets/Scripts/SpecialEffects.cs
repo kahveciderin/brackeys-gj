@@ -13,6 +13,7 @@ public class SpecialEffects : MonoBehaviour
     GameObject player;
     Camera cam;
     GameObject particle;
+
     void Start()
     {
         cam = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -40,7 +41,11 @@ public class SpecialEffects : MonoBehaviour
             if(changeDir){
 
                 if(player.GetComponent<BetterPlayerMovement>().isBaby){
-                player.GetComponent<BetterPlayerMovement>().direc = ! player.GetComponent<BetterPlayerMovement>().direc;
+
+                    if(Mathf.Abs(player.transform.position.x - transform.position.x) >= Mathf.Abs(player.transform.position.y - transform.position.y)){
+                        player.GetComponent<BetterPlayerMovement>().direc = ! player.GetComponent<BetterPlayerMovement>().direc;
+                    }
+                
                 }
             }
         }
