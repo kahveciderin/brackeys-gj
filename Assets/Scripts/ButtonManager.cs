@@ -26,6 +26,8 @@ public class ButtonManager : MonoBehaviour
     }
     public void StartPressed(){
          mainButtons.SetActive(false);
+         levelNo = PlayerPrefs.GetInt("levelToLoad") + 1;
+        levelDisplay.text =levelNo.ToString();
          levelSelection.SetActive(true);
 
     }
