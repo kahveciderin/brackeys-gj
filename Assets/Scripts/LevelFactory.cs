@@ -13,6 +13,7 @@ public class LevelFactory : MonoBehaviour
     public int useBlocks;
     public int last;
     public GameObject[] tuto;
+    public GameObject[] tileMaps;
 
     public int[] dontUseBlocks;
     public int[][] traditionalLevels = new int[][]{
@@ -67,7 +68,11 @@ public class LevelFactory : MonoBehaviour
            t.SetActive(false);
            }
        }else{
-           
+
+            foreach (GameObject go in tileMaps)
+                go.SetActive(false);
+           tileMaps[id].SetActive(true);
+
            tuto[id].SetActive(true);
             foreach(GameObject t in tuto){
 
