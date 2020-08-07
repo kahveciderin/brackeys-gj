@@ -1199,7 +1199,6 @@ GameObject:
   - component: {fileID: 741564407}
   - component: {fileID: 741564410}
   - component: {fileID: 741564408}
-  - component: {fileID: 741564404}
   m_Layer: 0
   m_Name: Adult
   m_TagString: Player
@@ -1207,19 +1206,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &741564404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 741564403}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2bf0dd8cebdf2a438be12d9db2570de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite: {fileID: -1649174231089564281, guid: f25733598b048f948ac30e59c473e885, type: 3}
 --- !u!4 &741564405
 Transform:
   m_ObjectHideFlags: 0
