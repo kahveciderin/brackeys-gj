@@ -55,7 +55,7 @@ public class BetterPlayerMovement : MonoBehaviour
     public GameObject gridRed;
     public bool direc = true;
 
-    
+
     public AudioManager audioManager;
 
     public ParticleSystem dust;
@@ -68,8 +68,8 @@ public class BetterPlayerMovement : MonoBehaviour
 
     void Start()
     {
-        
-        
+
+
         controller = GetComponent<BetterController>();
 
         gravity = -(2 * jumpHeight) / Mathf.Pow(timeToJumpApex, 2);
@@ -91,50 +91,38 @@ public class BetterPlayerMovement : MonoBehaviour
     void Update()
     {
 
-        if(audioManager == null){
+        if (audioManager == null)
+        {
             audioManager = FindObjectOfType<AudioManager>();
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape)){
-                buttonManager.GameMenu();
-            }
-        if(!isPaused){
-
-            
-        if (controller.collisions.above || controller.collisions.below)
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            velocity.y = 0;
-            //animator.SetBool("isFalling", false);
+            buttonManager.GameMenu();
         }
-
-        if (velocity.y < 1.3f)
-        {
-            animator.SetBool("isFalling", true);
-            animator.SetBool("isRunning", false);
-        }else{
-            animator.SetBool("isFalling", false);
-        }
-
-        if(velocity.y > 0.4f){
-             animator.SetTrigger("Jumping");
-        }
-
-
-        
-        if (!stop)
+        if (!isPaused)
         {
 
-            Vector2 input;
-            if (isBaby)
+
+            if (controller.collisions.above || controller.collisions.below)
             {
-                input = new Vector2(direc ? 1 : -1, 0);
+                velocity.y = 0;
+                animator.SetBool("isFalling", false);
             }
-            else
+
+            if (velocity.y > .3f)
             {
+                animator.SetBool("isFalling", true);
+            }
 
-                input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-                animator.SetBool("isRunning", (input.x != 0f) ? true : false);
+            if (velocity.y < -3f)
+            {
+                animator.SetBool("isFalling", false);
+            }
 
+
+
+<<<<<<< HEAD
                 if (Input.GetKeyDown(KeyCode.Space) && controller.collisions.below)
                 {
                    
@@ -143,39 +131,54 @@ public class BetterPlayerMovement : MonoBehaviour
                     audioManager.Play("jump");
                    
                 }
+=======
+>>>>>>> 50a4e9fab436770d2bd52caf3b59d83dde8e2b80
 
+            if (!stop)
+            {
 
-                if (Time.time - lastRecorded >= recordSpeed)
+                Vector2 input;
+                if (isBaby)
                 {
-                    playermovs.Push(gameObject.transform.position);
-                    lastRecorded = Time.time;
+                    input = new Vector2(direc ? 1 : -1, 0);
+                }
+                else
+                {
+
+                    input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxisRaw("Vertical"));
+                    animator.SetBool("isRunning", (input.x != 0f) ? true : false);
+
+                    if (Input.GetKeyDown(KeyCode.Space) && controller.collisions.below)
+                    {
+                        velocity.y = jumpVelocity;
+                        audioManager.Play("jump");
+
+                    }
+
+
+                    if (Time.time - lastRecorded >= recordSpeed)
+                    {
+                        playermovs.Push(gameObject.transform.position);
+                        lastRecorded = Time.time;
+                    }
+
+
+                    if (Input.GetAxis("Fire1") > 0)
+                    {
+
+                        stop = true;
+                        playermovs.Push(gameObject.transform.position);
+                        lastRecorded = Time.time;
+                        playermovs.Push(gameObject.transform.position);
+                        lastRecorded = Time.time;
+                        stop = true;
+                        StartCoroutine(reverseBaby());
+                    }
+
                 }
 
 
-                if (Input.GetAxis("Fire1") > 0)
-                {
-
-                    stop = true;
-                    playermovs.Push(gameObject.transform.position);
-                    lastRecorded = Time.time;
-                    playermovs.Push(gameObject.transform.position);
-                    lastRecorded = Time.time;
-                    stop = true;
-                    StartCoroutine(reverseBaby());
-                }
-
-            }
-
-
-            float targetVelocityX = input.x * moveSpeed;
-            velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
-            velocity.y += gravity * Time.deltaTime;
-            controller.Move(velocity * Time.deltaTime);
-
-
-        }
-
-
+<<<<<<< HEAD
         if(velocity.x > 0){
             transform.localScale = new Vector2(5,5);
             
@@ -183,6 +186,25 @@ public class BetterPlayerMovement : MonoBehaviour
             transform.localScale = new Vector2(-5,5);
              
         }
+=======
+                float targetVelocityX = input.x * moveSpeed;
+                velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
+                velocity.y += gravity * Time.deltaTime;
+                controller.Move(velocity * Time.deltaTime);
+
+
+            }
+
+
+            if (velocity.x > 0)
+            {
+                transform.localScale = new Vector2(5, 5);
+            }
+            else if (velocity.x < 0)
+            {
+                transform.localScale = new Vector2(-5, 5);
+            }
+>>>>>>> 50a4e9fab436770d2bd52caf3b59d83dde8e2b80
 
         }
     }
@@ -202,7 +224,7 @@ public class BetterPlayerMovement : MonoBehaviour
 
         Vector2 previousPos = transform.position;
         int f = 0;
-        for (f = 0; f < playermovsCountTest+ 1; f++)
+        for (f = 0; f < playermovsCountTest + 1; f++)
         {
 
             Vector2 playbackthis = playermovs.Pop();
@@ -240,7 +262,7 @@ public class BetterPlayerMovement : MonoBehaviour
 
         controller.CalculateRaySpacing();
 
-    theme.pitch = 1;
+        theme.pitch = 1;
     }
 
     public void ResetPlayer()
