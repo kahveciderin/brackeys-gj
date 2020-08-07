@@ -21,7 +21,7 @@ public class LevelFactory : MonoBehaviour
         
 
         
-        new int[] {8, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 2, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
+        new int[] {8, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, },
         new int[] {8, 6, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 0, 2, 4, 4, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
         new int[] {9, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, 0, 0, 5, 0, 2, 4, 4, 0, 0, 0, 0, 0, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
         new int[] {9, 5, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 0, 0, -3, 0, 4, 0, 2, 4, 4, 0, 9, 0, 0, 4, 0, 0, 4, 4, 0, 0, 0, 0, 0, 0, 0, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, },
@@ -69,9 +69,9 @@ public class LevelFactory : MonoBehaviour
            }
        }else{
 
-            foreach (GameObject go in tileMaps)
-                go.SetActive(false);
-           tileMaps[id].SetActive(true);
+            //foreach (GameObject go in tileMaps)
+                //go.SetActive(false);
+           //tileMaps[id].SetActive(true);
 
            tuto[id].SetActive(true);
             foreach(GameObject t in tuto){

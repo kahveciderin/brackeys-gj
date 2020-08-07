@@ -57,6 +57,15 @@ public class BetterPlayerMovement : MonoBehaviour
 
     
     public AudioManager audioManager;
+
+    public ParticleSystem dust;
+
+
+
+    public GameObject[] left;
+
+    public GameObject[] right;
+
     void Start()
     {
         
@@ -128,6 +137,8 @@ public class BetterPlayerMovement : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Space) && controller.collisions.below)
                 {
+                   
+                    dust.Play(); 
                     velocity.y = jumpVelocity;
                     audioManager.Play("jump");
                    
@@ -167,8 +178,10 @@ public class BetterPlayerMovement : MonoBehaviour
 
         if(velocity.x > 0){
             transform.localScale = new Vector2(5,5);
+            
         }else if(velocity.x < 0){
             transform.localScale = new Vector2(-5,5);
+             
         }
 
         }

@@ -8,6 +8,10 @@ public class LevelLoader : MonoBehaviour
     public Vector2 tileSize;
     public GameObject blocker;
     public GameObject background;
+
+    [Space]
+    [Header("Decorations")]
+    public GameObject[] Decorations;
     public void LoadLevel(int[][] level){
              foreach (Transform child in transform)
          {
@@ -30,6 +34,17 @@ public class LevelLoader : MonoBehaviour
              y += 1;
          }
         
+        GameObject left = Instantiate(Decorations[Random.Range(0,Decorations.Length - 1)], new Vector3(x - 1, y/2, -1), Quaternion.identity);
+        left.transform.SetParent(gameObject.transform);
+        left.transform.localPosition = new Vector3(-1, y/2,1);
+
+
+        GameObject right = Instantiate(Decorations[Random.Range(0,Decorations.Length - 1)], new Vector3(x - 1, y/2, -1), Quaternion.identity);
+        right.transform.SetParent(gameObject.transform);
+        right.transform.localPosition = new Vector3(level[0].Length, y/2,1);
+        right.transform.localScale = new Vector2(-right.transform.localScale.x, right.transform.localScale.y);
+        
+
         GameObject block = Instantiate(blocker, new Vector3(x - 1, y/2, -1), Quaternion.identity);
         block.transform.SetParent(gameObject.transform);
         block.transform.localPosition = new Vector3(level[0].Length - 3, y/2,1);
