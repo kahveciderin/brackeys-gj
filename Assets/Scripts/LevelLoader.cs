@@ -59,7 +59,8 @@ public class LevelLoader : MonoBehaviour
         block.transform.localScale = new Vector2(1,y*10);
 
 
-        background.transform.localScale = new Vector2(Mathf.Max(level[0].Length/ 2 , 8), Mathf.Max(y, 8));
+        background.transform.localScale = new Vector2(Mathf.Max(level[0].Length/ 2 + 3, 10), Mathf.Max(y + 3, 10));
+        background.transform.localPosition = new Vector3(background.transform.localPosition.x, background.transform.localPosition.y + 0.5f, background.transform.localPosition.z);
     }
 
     public int[][] ConvertLevel(int[] data){
