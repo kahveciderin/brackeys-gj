@@ -34,6 +34,8 @@ public class LevelLoader : MonoBehaviour
              y += 1;
          }
         
+
+        /*
         GameObject left = Instantiate(Decorations[Random.Range(0,Decorations.Length - 1)], new Vector3(x - 1, y/2, -1), Quaternion.identity);
         left.transform.SetParent(gameObject.transform);
         left.transform.localPosition = new Vector3(-1, y/2,1);
@@ -43,7 +45,7 @@ public class LevelLoader : MonoBehaviour
         right.transform.SetParent(gameObject.transform);
         right.transform.localPosition = new Vector3(level[0].Length, y/2,1);
         right.transform.localScale = new Vector2(-right.transform.localScale.x, right.transform.localScale.y);
-        
+        */
 
         GameObject block = Instantiate(blocker, new Vector3(x - 1, y/2, -1), Quaternion.identity);
         block.transform.SetParent(gameObject.transform);

@@ -22,8 +22,10 @@ public class SpecialEffects : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D coll){
-        if(coll.gameObject == player){
 
+        
+        if(coll.gameObject == player){
+            if(!player.GetComponent<BetterPlayerMovement>().stop){
             if(spring){
 
                 player.GetComponent<BetterPlayerMovement>().audioManager.Play("jump");
@@ -48,6 +50,10 @@ public class SpecialEffects : MonoBehaviour
                 
                 }
             }
+        }
+
+
+            
         }
     }
 

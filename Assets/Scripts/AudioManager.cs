@@ -55,4 +55,8 @@ public class AudioManager : MonoBehaviour
 		return Array.Find(sounds, item => item.name == sound).source;
 	}
 
+	void Start(){
+		Play("theme");
+	}
+
 }

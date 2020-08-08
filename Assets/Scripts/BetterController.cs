@@ -21,6 +21,7 @@ public class BetterController : MonoBehaviour {
 	RaycastOrigins raycastOrigins;
 	public CollisionInfo collisions;
 
+	
 
 
 	void Start() {
@@ -57,7 +58,7 @@ public class BetterController : MonoBehaviour {
 
 			Debug.DrawRay(rayOrigin, Vector2.right * directionX * rayLength,Color.red);
 
-			if (hit) {
+			if (hit ) {
 
 				float slopeAngle = Vector2.Angle(hit.normal, Vector2.up);
 
@@ -100,14 +101,15 @@ public class BetterController : MonoBehaviour {
 			RaycastHit2D hit = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, collisionMask);
 
 			RaycastHit2D hitplat;
-			if(velocity.y < 0){
+			if(velocity.y <= 0f){
 				hitplat = Physics2D.Raycast(rayOrigin, Vector2.up * directionY, rayLength, oneWay);
 			}else{
 				hitplat = hit;
 			}
 			Debug.DrawRay(rayOrigin, Vector2.up * directionY * rayLength,Color.red);
 
-			if (hit || hitplat) {
+			bool isGnd = hit || hitplat;
+			if (isGnd ) {
 				velocity.y = (hit.distance - skinWidth) * directionY;
 				rayLength = hit.distance;
 
@@ -118,6 +120,7 @@ public class BetterController : MonoBehaviour {
 				collisions.below = directionY == -1;
 				collisions.above = directionY == 1;
 			}
+			
 		}
 
 		if (collisions.climbingSlope) {

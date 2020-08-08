@@ -62,9 +62,8 @@ public class BetterPlayerMovement : MonoBehaviour
 
 
 
-    public GameObject[] left;
-
-    public GameObject[] right;
+    float remember = .1f;
+	float lastTime;
 
     void Start()
     {
@@ -121,18 +120,16 @@ public class BetterPlayerMovement : MonoBehaviour
             }
 
 
+                if(controller.collisions.below){
 
-<<<<<<< HEAD
-                if (Input.GetKeyDown(KeyCode.Space) && controller.collisions.below)
-                {
-                   
+                    lastTime = Time.time;
+                }
+
+               if(Time.time - lastTime <= remember && Input.GetKeyDown(KeyCode.Space)){
                     dust.Play(); 
                     velocity.y = jumpVelocity;
                     audioManager.Play("jump");
-                   
                 }
-=======
->>>>>>> 50a4e9fab436770d2bd52caf3b59d83dde8e2b80
 
             if (!stop)
             {
@@ -178,15 +175,6 @@ public class BetterPlayerMovement : MonoBehaviour
                 }
 
 
-<<<<<<< HEAD
-        if(velocity.x > 0){
-            transform.localScale = new Vector2(5,5);
-            
-        }else if(velocity.x < 0){
-            transform.localScale = new Vector2(-5,5);
-             
-        }
-=======
                 float targetVelocityX = input.x * moveSpeed;
                 velocity.x = Mathf.SmoothDamp(velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisions.below) ? accelerationTimeGrounded : accelerationTimeAirborne);
                 velocity.y += gravity * Time.deltaTime;
@@ -204,7 +192,6 @@ public class BetterPlayerMovement : MonoBehaviour
             {
                 transform.localScale = new Vector2(-5, 5);
             }
->>>>>>> 50a4e9fab436770d2bd52caf3b59d83dde8e2b80
 
         }
     }
