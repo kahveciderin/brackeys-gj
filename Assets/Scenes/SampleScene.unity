@@ -7004,7 +7004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 741564405}
   smoothSpeed: {x: 0.125, y: 0.02, z: 1}
-  offset: {x: 0, y: 1.48, z: -5.46}
+  offset: {x: 0, y: 1, z: -5.46}
   shake: 0
   shakeSpeed: 4
 --- !u!114 &963194230
@@ -7650,7 +7650,9 @@ MonoBehaviour:
   blocker: {fileID: 2589408137289008275, guid: b377e1f1ad5b51b93a6f851161eecf71, type: 3}
   background: {fileID: 1767035540}
   Decorations:
-  - {fileID: 5613150974346417050, guid: 49840e923303e4caa9ea80707e2c796c, type: 3}
+  - {fileID: 7916328105297545065, guid: 942fe2ea2e411fec18b64f7bf2d63140, type: 3}
+  - {fileID: 1665391331503175843, guid: e33ae3857b80748ccb7706247a527524, type: 3}
+  - {fileID: 1665391331503175843, guid: e232e266368c22d30b32f7661f0fec2e, type: 3}
 --- !u!114 &1204379744
 MonoBehaviour:
   m_ObjectHideFlags: 0

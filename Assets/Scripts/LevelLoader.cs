@@ -35,17 +35,23 @@ public class LevelLoader : MonoBehaviour
          }
         
 
-        /*
-        GameObject left = Instantiate(Decorations[Random.Range(0,Decorations.Length - 1)], new Vector3(x - 1, y/2, -1), Quaternion.identity);
+
+        GameObject left = Instantiate(Decorations[1], new Vector3(x - 1, y/2, -1), Quaternion.identity);
         left.transform.SetParent(gameObject.transform);
-        left.transform.localPosition = new Vector3(-1, y/2,1);
+        left.transform.localPosition = new Vector3(-3.5f, 3,1);
+        left.transform.localScale = new Vector2(left.transform.localScale.x, left.transform.localScale.y);
 
-
-        GameObject right = Instantiate(Decorations[Random.Range(0,Decorations.Length - 1)], new Vector3(x - 1, y/2, -1), Quaternion.identity);
+        GameObject right = Instantiate(Decorations[0], new Vector3(x - 1, y/2, -1), Quaternion.identity);
         right.transform.SetParent(gameObject.transform);
-        right.transform.localPosition = new Vector3(level[0].Length, y/2,1);
+        right.transform.localPosition = new Vector3(level[0].Length+2.5f, 3,1);
         right.transform.localScale = new Vector2(-right.transform.localScale.x, right.transform.localScale.y);
-        */
+
+
+        GameObject floor = Instantiate(Decorations[2], new Vector3(x - 1, y/2, -1), Quaternion.identity);
+        floor.transform.SetParent(gameObject.transform);
+        floor.transform.localPosition = new Vector3(level[0].Length / 2, -1.5f,1);
+        floor.transform.localScale = new Vector2(  Mathf.Max(floor.transform.localScale.x, level[0].Length / (2 * tileSize.x)), floor.transform.localScale.y);
+        
 
         GameObject block = Instantiate(blocker, new Vector3(x - 1, y/2, -1), Quaternion.identity);
         block.transform.SetParent(gameObject.transform);

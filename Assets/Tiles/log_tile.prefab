@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6679742696334927755}
   - component: {fileID: 5414086793097119877}
   m_Layer: 8
-  m_Name: wall_tile
+  m_Name: log_tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -2
-  m_Sprite: {fileID: 21300000, guid: 4991e4e5b3d37a947a1b66e61a39a235, type: 3}
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: dced885b97421fe93a1495eb341b70c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

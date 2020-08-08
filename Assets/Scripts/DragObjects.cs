@@ -12,6 +12,8 @@ public class DragObjects : MonoBehaviour
     GameObject gridRed;
     Collider2D collider;
 
+
+    bool drag = false;
     public bool canOnPlayer = false;
 
     SpriteRenderer spriteRenderer;
@@ -47,6 +49,7 @@ public class DragObjects : MonoBehaviour
 
             grid.SetActive(false);
             gridRed.SetActive(false);
+            drag = false;
     }
 
     void Update()
@@ -59,10 +62,15 @@ public class DragObjects : MonoBehaviour
             
             reachable = Vector3.Distance(gameObject.transform.position, player.transform.position);
             //Debug.Log(reachable);
-            if(reachable < 4){
+            if(reachable < 3.6f){
                 grid.SetActive(true);
             transform.Translate(new Vector2(Mathf.Round(mousePosition.x), Mathf.Round(mousePosition.y)));
+            drag = true;
 
+            }else if(!drag && reachable < 4){
+                grid.SetActive(true);
+            transform.Translate(new Vector2(Mathf.Round(mousePosition.x), Mathf.Round(mousePosition.y)));
+            drag = true;
             }else{
                 gridRed.SetActive(true);
             }
