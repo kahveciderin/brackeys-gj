@@ -55,7 +55,7 @@ public class LevelLoader : MonoBehaviour
 
         GameObject block = Instantiate(blocker, new Vector3(x - 1, y/2, -1), Quaternion.identity);
         block.transform.SetParent(gameObject.transform);
-        block.transform.localPosition = new Vector3(level[0].Length - 3, y/2,1);
+        block.transform.localPosition = new Vector3(level[0].Length - 3, y/2 + 3,1);
         block.transform.localScale = new Vector2(1,y*10);
 
 
