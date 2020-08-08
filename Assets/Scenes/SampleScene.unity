@@ -632,7 +632,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.065681756, g: 0.7735849, b: 0.06973156, a: 1}
+      maxColor: {r: 0.6320754, g: 0.5052053, b: 0.43529722, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5176,7 +5176,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ca8539e563f24f96d88a7a613ca69526, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5738,7 +5738,6 @@ MonoBehaviour:
   settings: {fileID: 1345192481}
   levelDisplay: {fileID: 0}
   player: {fileID: 741564407}
-  audioManager: {fileID: 0}
 --- !u!114 &542113960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6093,8 +6092,6 @@ MonoBehaviour:
   direc: 1
   audioManager: {fileID: 0}
   dust: {fileID: 222821314}
-  left: []
-  right: []
 --- !u!212 &741564408
 SpriteRenderer:
   m_ObjectHideFlags: 0
